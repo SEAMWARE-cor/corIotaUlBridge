@@ -27,7 +27,7 @@ IOTAUL_TEST_DIR="${IOTAUL_TEST_DIR:-/tmp/iotaul-bridge-test}"
 brokerStart() {
   brokerStop
 
-  "$IOTAUL_BROKER" --port "$IOTAUL_PORT" --foreground --pretty-print 2 --httpEndpoint "http://localhost:$IOTAUL_PORT" \
+  "$IOTAUL_BROKER" --port "$IOTAUL_PORT" --pretty-print 2 --httpEndpoint "http://localhost:$IOTAUL_PORT" \
                  --database ramDB --bridges "$IOTAUL_PLUGIN" --bridgeConfig "$IOTAUL_TEST_DIR/bridges.json" "$@" \
                  > "$IOTAUL_TEST_DIR/broker.log" 2>&1 &
   echo $! > "$IOTAUL_TEST_DIR/broker.pid"
